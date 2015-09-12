@@ -19,9 +19,9 @@ echo "1. Network  |  2.Backup  |  3.World Clock"
 echo ""
 # echo "5. Update Dokter's Tools"
 # echo ""
-echo "A. About"
-echo ""
 echo "B. Back to Main Menu"
+echo ""
+echo ""
 echo ""
 echo ""
 echo ""
@@ -52,10 +52,6 @@ case "$answer" in
 	3)
 		clear
 		exec ./settingswc.sh
-		break
-		;;
-	[aA])
-		exec ./about.sh
 		break
 		;;
 	[bB])
