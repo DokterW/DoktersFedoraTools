@@ -4,9 +4,11 @@ A collection of handy tools at your fingertips. Instead of typing a bunch a comm
 
 1 Install
 
-Download or git clone, then run dokter.sh -- that's it.
+Download or git clone, then run start.sh -- that's it.
 
-At first run it will create a folder, .DoktersTools, in your home directory. This allows your to keep your settings whenever I upgrade this bash script collection.
+At first run it will create a folder, .DoktersTools, in your home directory. This allows you to keep your settings whenever I upgrade this bash script collection.
+
+Keep in mind, you use this script collection at your own risk. If something goes wrong, I take no responsibility. It's open source, check it yourself. So if you find a bug, let me know.
 
 2 History
 

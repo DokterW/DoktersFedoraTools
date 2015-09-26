@@ -4,14 +4,14 @@ while :
 
 do
 
-bcastip=$(cat $HOME/.DoktersTools/settings/net/broadcastip.txt)
-bcastipx=$(cat $HOME/.DoktersTools/settings/net/broadcastipx.txt)
-sship=$(cat $HOME/.DoktersTools/settings/net/sship.txt)
-sshuser=$(cat $HOME/.DoktersTools/settings/net/sshuser.txt)
-telnetip=$(cat $HOME/.DoktersTools/settings/net/telnetip.txt)
-dldir=$(cat $HOME/.DoktersTools/settings/net/dldir.txt)
-name=$(cat name.txt)
-version=$(cat version.txt)
+bcastip=$(sed -n "22p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+bcastipx=$(sed -n "24p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+sship=$(sed -n "26p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+sshuser=$(sed -n "28p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+telnetip=$(sed -n "30p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+dldir=$(sed -n "32p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 
 clear
 

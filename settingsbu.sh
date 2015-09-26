@@ -4,11 +4,11 @@ while :
 
 do
 
-busrc=$(cat $HOME/.DoktersTools/settings/bu/busrc.txt)
-buloc=$(cat $HOME/.DoktersTools/settings/bu/buloc.txt)
-buname=$(cat $HOME/.DoktersTools/settings/bu/buname.txt)
-name=$(cat name.txt)
-version=$(cat version.txt)
+busrc=$(sed -n "10p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+buloc=$(sed -n "12p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+buname=$(sed -n "14p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 
 clear
 
@@ -22,16 +22,16 @@ echo "Backup Location:"
 echo ">  $HOME/$buloc"
 echo "1. Edit"
 echo ""
-echo "Backup Files & Folders:"
+echo "Backup Source(s):"
 echo ">  $busrc"
-echo "2. Edit"
+echo "2. Edit (For now this only overwrites, not appends! Will be fixed later.)"
+echo "D. Default Setting"
 echo ""
 echo "Backup Name:"
 echo ">  $buname"
 echo "3. Edit"
 echo ""
 echo "B. Back to Main Menu"
-echo ""
 echo ""
 echo ""
 echo ""
@@ -45,22 +45,25 @@ case "$answer" in
         echo "Backup Location..."
         echo ""
         read -p "Enter New Backup Location: $HOME/" buloc
-        echo "$buloc" > $HOME/.DoktersTools/settings/bu/buloc.txt
+        sed -i "12c$buloc" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     2)
         clear
-        echo "Backup Files & Folder..."
+        echo "Backup Source(s)..."
         echo ""
-        vim $HOME/.DoktersTools/settings/bu/busrc.txt
-#        read -p "Enter New Backup Files & Folders: " busrc
-#        echo "$busrc" > settings/bu/buff.txt
+        read -p "Enter New Backup Location(s): $HOME/" busrc
+        sed -i "10c$busrc" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
-    2)
+    [dD])
+        clear
+        sed -i "10c~/" $HOME/.DoktersTools/DoktersFedoraTools.conf
+    ;;
+    3)
         clear
         echo "Backup Name..."
         echo ""
         read -p "Enter New Backup name: " buname
-        echo "$buname" > $HOME/.DoktersTools/settings/bu/buname.txt
+        sed -i "14c$buname" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [bB])
         exec ./settings.sh

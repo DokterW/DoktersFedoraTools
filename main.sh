@@ -1,7 +1,7 @@
 #!/bin/bash
 
-blght=$(cat $HOME/.DoktersTools/settings/sys/backlight.txt)
-snd=$(cat $HOME/.DoktersTools/settings/sys/sound.txt)
+blght=$(sed -n "8p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+snd=$(sed -n "6p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 xbacklight -set $blght%
 amixer -q sset 'Master' $snd%
 ssid=$(nmcli dev wifi list | grep '* ' | grep -vw 'SSID'  | cut -c 4-10)
@@ -19,24 +19,24 @@ while :
 do
     if [ "$blght" = -5 ]
         then
-        echo 0 > $HOME/.DoktersTools/settings/sys/backlight.txt
-        blght=$(cat $HOME/.DoktersTools/settings/sys/backlight.txt)
+        sed -i "8c0" $HOME/.DoktersTools/DoktersFedoraTools.conf
+        blght=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
     elif [ "$blght" = 105 ]
         then
-        echo 100 > $HOME/.DoktersTools/settings/sys/backlight.txt
-        blght=$(cat $HOME/.DoktersTools/settings/sys/backlight.txt)
+        sed -i "8c100" $HOME/.DoktersTools/DoktersFedoraTools.conf
+        blght=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
     elif [ "$snd" = -5 ]
         then
-        echo 0 > $HOME/.DoktersTools/settings/sys/sound.txt
-        snd=$(cat $HOME/.DoktersTools/settings/sys/sound.txt)
+        sed -i "6c0" $HOME/.DoktersTools/DoktersFedoraTools.conf
+        snd=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
     elif [ "$snd" = 105 ]
         then
-        echo 100 > $HOME/.DoktersTools/settings/sys/sound.txt
-        snd=$(cat $HOME/.DoktersTools/settings/sys/sound.txt)
+        sed -i "6c100" $HOME/.DoktersTools/DoktersFedoraTools.conf
+        snd=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
     fi
 
-name=$(cat name.txt)
-version=$(cat version.txt)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 clear
 
 echo -n "$name - v"
@@ -89,22 +89,22 @@ case "$answer" in
     ;;
     [aA])
         blght=$((blght+5))
-        echo $blght > $HOME/.DoktersTools/settings/sys/backlight.txt
+        sed -i "8c$blght" $HOME/.DoktersTools/DoktersFedoraTools.conf
         xbacklight -set $blght%
     ;;
     [zZ])
         blght=$((blght-5))
-        echo $blght > $HOME/.DoktersTools/settings/sys/backlight.txt
+        sed -i "8c$blght" $HOME/.DoktersTools/DoktersFedoraTools.conf
         xbacklight -set $blght%
     ;;
     [sS])
         snd=$((snd+5))
-        echo $snd > $HOME/.DoktersTools/settings/sys/sound.txt
+        sed -i "6c$snd" $HOME/.DoktersTools/DoktersFedoraTools.conf
         amixer -q sset 'Master' $snd%
     ;;
     [xX])
         snd=$((snd-5))
-        echo $snd > $HOME/.DoktersTools/settings/sys/sound.txt
+        sed -i "6c$snd" $HOME/.DoktersTools/DoktersFedoraTools.conf
         amixer -q sset 'Master' $snd%
     ;;
     [mM])

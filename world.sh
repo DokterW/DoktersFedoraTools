@@ -4,16 +4,16 @@ while :
 
 do
 
-wc1n=$(cat $HOME/.DoktersTools/settings/wc/wc1n.txt)
-wc1z=$(cat $HOME/.DoktersTools/settings/wc/wc1z.txt)
-wc2n=$(cat $HOME/.DoktersTools/settings/wc/wc2n.txt)
-wc2z=$(cat $HOME/.DoktersTools/settings/wc/wc2z.txt)
-wc3n=$(cat $HOME/.DoktersTools/settings/wc/wc3n.txt)
-wc3z=$(cat $HOME/.DoktersTools/settings/wc/wc3z.txt)
-wc4n=$(cat $HOME/.DoktersTools/settings/wc/wc4n.txt)
-wc4z=$(cat $HOME/.DoktersTools/settings/wc/wc4z.txt)
-name=$(cat name.txt)
-version=$(cat version.txt)
+wc1n=$(sed -n "34p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc1z=$(sed -n "36p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc2n=$(sed -n "38p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc2z=$(sed -n "40p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc3n=$(sed -n "42p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc3z=$(sed -n "44p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc4n=$(sed -n "46p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc4z=$(sed -n "48p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 
 clear
 

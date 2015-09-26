@@ -4,8 +4,8 @@ while :
 
 do
 
-name=$(cat name.txt)
-version=$(cat version.txt)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 
 clear
 

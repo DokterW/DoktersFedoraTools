@@ -4,16 +4,16 @@ while :
 
 do
 
-wc1n=$(cat $HOME/.DoktersTools/settings/wc/wc1n.txt)
-wc1z=$(cat $HOME/.DoktersTools/settings/wc/wc1z.txt)
-wc2n=$(cat $HOME/.DoktersTools/settings/wc/wc2n.txt)
-wc2z=$(cat $HOME/.DoktersTools/settings/wc/wc2z.txt)
-wc3n=$(cat $HOME/.DoktersTools/settings/wc/wc3n.txt)
-wc3z=$(cat $HOME/.DoktersTools/settings/wc/wc3z.txt)
-wc4n=$(cat $HOME/.DoktersTools/settings/wc/wc4n.txt)
-wc4z=$(cat $HOME/.DoktersTools/settings/wc/wc4z.txt)
-name=$(cat name.txt)
-version=$(cat version.txt)
+wc1n=$(sed -n "34p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc1z=$(sed -n "36p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc2n=$(sed -n "38p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc2z=$(sed -n "40p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc3n=$(sed -n "42p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc3z=$(sed -n "44p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc4n=$(sed -n "46p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+wc4z=$(sed -n "48p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+name=$(sed -n "2p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
+version=$(sed -n "4p" $HOME/.DoktersTools/DoktersFedoraTools.conf)
 
 clear
 
@@ -50,56 +50,56 @@ case "$answer" in
         echo "World Clock 1 Name..."
         echo ""
         read -p "Enter New World Clock 1 Name: " wc1n
-        echo "$wc1n" > $HOME/.DoktersTools/settings/wc/wc1n.txt
+        sed -i "34c$wc1n" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [qQ])
         clear
         echo "World Clock 1 TZ..."
         echo ""
         read -p "Enter New World Clock 1 TZ: " wc1z
-        echo "$wc1z" > $HOME/.DoktersTools/settings/wc/wc1z.txt
+        sed -i "36c$wc1z" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     2)
         clear
         echo "World Clock 2 Name..."
         echo ""
         read -p "Enter New World Clock 2 Name: " wc2n
-        echo "$wc2n" > $HOME/.DoktersTools/settings/wc/wc2n.txt
+        sed -i "38c$wc2n" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [wW])
         clear
         echo "World Clock 2 TZ..."
         echo ""
         read -p "Enter New World Clock 2 TZ: " wc2z
-        echo "$wc2z" > $HOME/.DoktersTools/settings/wc/wc2z.txt
+        sed -i "40c$wc2z" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     3)
         clear
         echo "World Clock 3 Name..."
         echo ""
         read -p "Enter New World Clock 3 Name: " wc3n
-        echo "$wc3n" > $HOME/.DoktersTools/settings/wc/wc3n.txt
+        sed -i "42c$wc3n" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [eE])
         clear
         echo "World Clock 3 TZ..."
         echo ""
         read -p "Enter New World Clock 3 TZ: " wc3z
-        echo "$wc3z" > $HOME/.DoktersTools/settings/wc/wc3z.txt
+        sed -i "44c$wc3z" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     4)
         clear
         echo "World Clock 4 Name..."
         echo ""
         read -p "Enter New World Clock 4 Name: " wc4n
-        echo "$wc4n" > $HOME/.DoktersTools/settings/wc/wc4n.txt
+        sed -i "46c$wc4n" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [rR])
         clear
         echo "World Clock 4 TZ..."
         echo ""
         read -p "Enter New World Clock 4 TZ: " wc4z
-        echo "$wc4z" > $HOME/.DoktersTools/settings/wc/wc4z.txt
+        sed -i "48c$wc4z" $HOME/.DoktersTools/DoktersFedoraTools.conf
     ;;
     [bB])
         exec ./settings.sh
